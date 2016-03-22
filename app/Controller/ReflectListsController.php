@@ -14,8 +14,14 @@ class ReflectListsController extends AppController{
         //debug($list);
 	}
 
-    public function show(){
+    public function show($user_id = '',$week = ''){
+        if($this->request->is('get')){
+            $reflect_list = $this->ReflectList->find('first',array(
+                'conditions'=>compact('user_id','week')
+            ));
 
+            $this->set(compact('reflect_list','user_id','week'));
+        }
     }
 
     public function edit($user_id = '',$week = ''){
