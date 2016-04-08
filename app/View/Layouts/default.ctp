@@ -2,7 +2,7 @@
 <html>
 <head>
     <?php echo $this->Html->charset(); ?>
-    <title>Libraryβ版</title>
+    <title>振り返りツールβ版</title>
     <?php
 
     echo $this->Html->meta('icon');

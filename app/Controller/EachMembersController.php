@@ -1,25 +1,23 @@
 <?php
 
-class ReflectListsController extends AppController{
-/*
-    public $uses = array(
+class EachMembersController extends AppController{
+
+    public $uses = [
         'ReflectList',
-    );
-*/
-    /**
-     * TOP
-     */
-    public function index(){
-        $list = $this->ReflectList->find('all');
-        //debug($list);
-	}
+    ];
 
-    public function show($user_id = '',$week = ''){
+    public function show($user_id,$week = ''){
+        
         if($this->request->is('get')){
-            $reflect_list = $this->ReflectList->find('first',array(
-                'conditions'=>compact('user_id','week')
-            ));
-
+            foreach(['1'=>'takaishi','2'=>'mori','3'=>'kawaguti']  as $user_id => $name){
+                $reflect_list[$name] = $this->ReflectList->find('all',array(
+                    'conditions'=>[
+                        'week' => $week,
+                        'user_id' => $user_id
+                    ]
+                ));    
+            }
+            
             $this->set(compact('reflect_list','user_id','week'));
         }
     }

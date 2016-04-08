@@ -38,7 +38,8 @@ class AppModel extends Model {
 
         return $sql_log;
     }
-
+    /**
+     * 
     public function beforeSave() {
 
         if(empty($this->data['id'])){
@@ -49,4 +50,5 @@ class AppModel extends Model {
 
         return true;
     }
+*/
 }
